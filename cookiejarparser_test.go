@@ -3,11 +3,11 @@ package cookiejarparser
 import (
 	"encoding/json"
 	"net/http"
-	"net/http/cookiejar"
 	"net/url"
 	"reflect"
 	"testing"
 
+	CustomCookieJar "github.com/jayateertha043/go-cookiejar"
 	"golang.org/x/net/publicsuffix"
 )
 
@@ -82,7 +82,7 @@ func TestLoadCookieJarFile(t *testing.T) {
 			Secure:   false,
 		},
 	}
-	sampleCookieJar, _ := cookiejar.New(&cookiejar.Options{PublicSuffixList: publicsuffix.List})
+	sampleCookieJar, _ := CustomCookieJar.New(&CustomCookieJar.Options{PublicSuffixList: publicsuffix.List})
 	sampleCookieJar.SetCookies(exampleURL, sampleCookies)
 
 	cookieJar, err := LoadCookieJarFile("data/cookies.txt")

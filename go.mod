@@ -1,5 +1,8 @@
-module github.com/ssgelm/cookiejarparser
+module github.com/jayateertha043/cookiejarparser
 
-go 1.13
+go 1.16
 
-require golang.org/x/net v0.0.0-20191027093000-83d349e8ac1a
+require (
+	github.com/jayateertha043/go-cookiejar v0.0.0-20210609114737-110c90926fc2
+	golang.org/x/net v0.0.0-20210525063256-abc453219eb5
+)

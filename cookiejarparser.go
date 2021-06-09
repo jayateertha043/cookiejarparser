@@ -4,13 +4,13 @@ import (
 	"bufio"
 	"fmt"
 	"net/http"
-	"net/http/cookiejar"
 	"net/url"
 	"os"
 	"strconv"
 	"strings"
 	"time"
 
+	CustomCookieJar "github.com/jayateertha043/go-cookiejar"
 	"golang.org/x/net/publicsuffix"
 )
 
@@ -31,7 +31,7 @@ func parseCookieLine(cookieLine string, lineNum int) (*http.Cookie, error) {
 	cookieFields := strings.Split(cookieLine, "\t")
 
 	if len(cookieFields) < 6 || len(cookieFields) > 7 {
-		return nil, fmt.Errorf("incorrect number of fields in line %d.  Expected 6 or 7, got %d.", lineNum, len(cookieFields))
+		return nil, fmt.Errorf("incorrect number of fields in line %d  Expected 6 or 7 got %d", lineNum, len(cookieFields))
 	}
 
 	for i, v := range cookieFields {
@@ -65,7 +65,7 @@ func parseCookieLine(cookieLine string, lineNum int) (*http.Cookie, error) {
 
 // LoadCookieJarFile takes a path to a curl (netscape) cookie jar file and crates a go http.CookieJar with the contents
 func LoadCookieJarFile(path string) (http.CookieJar, error) {
-	jar, err := cookiejar.New(&cookiejar.Options{PublicSuffixList: publicsuffix.List})
+	jar, err := CustomCookieJar.New(&CustomCookieJar.Options{PublicSuffixList: publicsuffix.List})
 	if err != nil {
 		return nil, err
 	}

@@ -1,5 +1,5 @@
 # cookiejarparser
-
+This is fork of https://github.com/ssgelm/cookiejarparser with custom cookie jar implementation to support ip based cookie setting.
 cookiejarparser is a Go library that parses a curl (netscape) cookiejar file into a Go http.CookieJar.
 
 ## Usage
