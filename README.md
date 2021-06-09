@@ -17,8 +17,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-
-	"github.com/ssgelm/cookiejarparser"
+	"github.com/jayateertha043/cookiejarparser"
 )
 
 func main() {
